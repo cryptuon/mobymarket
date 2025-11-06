@@ -1,0 +1,56 @@
+[package]
+name = "moby-privacy"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Zero-knowledge proof system and privacy infrastructure for whale trading"
+
+[dependencies]
+# Workspace dependencies (temporarily commented for testing)
+# moby-math = { path = "../moby-math" }
+# moby-types = { path = "../moby-types" }
+
+# Core dependencies
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+uuid = { workspace = true }
+hex = { workspace = true }
+rand = { workspace = true }
+chrono = { workspace = true }
+async-trait = { workspace = true }
+
+# Crypto (minimal set to avoid conflicts)
+sha2 = { workspace = true }
+sha3 = { workspace = true }
+blake2 = { workspace = true }
+
+# Solana (optional features)
+solana-program = { workspace = true, optional = true }
+anchor-lang = { workspace = true, optional = true }
+
+[dev-dependencies]
+tokio-test = "0.4"
+criterion = { workspace = true }
+
+[features]
+default = []
+solana = ["solana-program", "anchor-lang"]
+testing = []
+
+[[example]]
+name = "private_trade"
+
+[[example]]
+name = "mixer_circuit"
+
+[[example]]
+name = "range_proof"
+
+[[example]]
+name = "privacy_pool"
+
+[[example]]
+name = "stealth_addresses"

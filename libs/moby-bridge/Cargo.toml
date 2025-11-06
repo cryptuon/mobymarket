@@ -1,0 +1,111 @@
+[package]
+name = "moby-bridge"
+version = "0.1.0"
+edition = "2021"
+authors = ["Moby Market Team <bridge@moby-market.com>"]
+description = "Cross-chain bridge infrastructure for whale trading protocols"
+license = "MIT"
+homepage = "https://moby-market.com"
+repository = "https://github.com/moby-market/moby-bridge"
+keywords = ["bridge", "cross-chain", "whale-trading", "defi", "interoperability"]
+categories = ["cryptography", "finance", "network-programming"]
+
+[lib]
+name = "moby_bridge"
+path = "src/lib.rs"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.0", features = ["full"] }
+async-trait = "0.1"
+futures = "0.3"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+
+# Cryptography
+sha2 = "0.10"
+blake3 = "1.4"
+ed25519-dalek = "2.0"
+k256 = "0.13"
+rand = "0.8"
+hex = "0.4"
+
+# Networking
+reqwest = { version = "0.11", features = ["json"] }
+websocket-lite = "0.5"
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Decimal arithmetic
+rust_decimal = { version = "1.0", features = ["serde"] }
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Utilities
+uuid = { version = "1.0", features = ["v4", "serde"] }
+dashmap = "5.0"
+
+# Collections
+indexmap = { version = "2.0", features = ["serde"] }
+
+# Merkle tree support
+merkle = "2.0"
+
+# Zero-knowledge proofs (for privacy bridges)
+ark-std = "0.4"
+ark-ff = "0.4"
+ark-ec = "0.4"
+
+[dev-dependencies]
+tokio-test = "0.4"
+pretty_assertions = "1.0"
+tempfile = "3.0"
+mock_instant = "0.3"
+
+[features]
+default = ["std"]
+std = []
+mock = []
+ethereum = []
+solana = []
+polygon = []
+bsc = []
+avalanche = []
+
+[[example]]
+name = "cross_chain_transfer"
+path = "examples/cross_chain_transfer.rs"
+
+[[example]]
+name = "whale_bridge_strategy"
+path = "examples/whale_bridge_strategy.rs"
+
+[[example]]
+name = "bridge_monitoring"
+path = "examples/bridge_monitoring.rs"
+
+[[example]]
+name = "liquidity_bridging"
+path = "examples/liquidity_bridging.rs"
+
+[[example]]
+name = "privacy_bridge"
+path = "examples/privacy_bridge.rs"
+
+[[bench]]
+name = "bridge_performance"
+harness = false
+
+[[bench]]
+name = "validation_performance"
+harness = false
+
+[[bench]]
+name = "message_processing"
+harness = false

@@ -1,0 +1,51 @@
+[package]
+name = "moby-types"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Core data types and account structures for whale trading infrastructure"
+
+[dependencies]
+# Core math libraries
+moby-math = { path = "../moby-math" }
+
+# Workspace dependencies
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+rust_decimal.workspace = true
+borsh.workspace = true
+bytemuck.workspace = true
+arrayref.workspace = true
+
+# Solana ecosystem
+solana-program.workspace = true
+anchor-lang = { workspace = true, optional = true }
+spl-token.workspace = true
+
+# Cryptography
+curve25519-dalek.workspace = true
+ed25519-dalek.workspace = true
+sha3.workspace = true
+
+# Time and utilities
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.6", features = ["serde", "v4"] }
+
+[dev-dependencies]
+proptest.workspace = true
+criterion.workspace = true
+
+[[bench]]
+name = "serialization"
+harness = false
+
+[lib]
+name = "moby_types"
+path = "src/lib.rs"
+
+[features]
+default = ["anchor"]
+anchor = ["anchor-lang"]
+no-entrypoint = []

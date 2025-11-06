@@ -1,0 +1,113 @@
+[package]
+name = "moby-market-platform"
+version = "0.1.0"
+edition = "2021"
+authors = ["Moby Market Team <platform@moby-market.com>"]
+description = "Complete whale trading platform integrating privacy, governance, bridge, oracle, and DEX components"
+license = "MIT"
+homepage = "https://moby-market.com"
+repository = "https://github.com/moby-market/moby-market-platform"
+keywords = ["whale-trading", "defi", "privacy", "cross-chain", "dex"]
+categories = ["cryptography", "finance", "network-programming"]
+
+[lib]
+name = "moby_market_platform"
+path = "src/lib.rs"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.0", features = ["full"] }
+async-trait = "0.1"
+futures = "0.3"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Decimal arithmetic
+rust_decimal = { version = "1.0", features = ["serde"] }
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Utilities
+uuid = { version = "1.0", features = ["v4", "serde"] }
+dashmap = "5.0"
+
+# Configuration
+config = "0.13"
+
+# Logging
+log = "0.4"
+env_logger = "0.10"
+
+# HTTP server for APIs
+axum = "0.7"
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+
+# Database
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "chrono", "rust_decimal", "uuid"] }
+
+# Metrics and monitoring
+prometheus = "0.13"
+metrics = "0.21"
+
+# WebSocket for real-time data
+tokio-tungstenite = "0.20"
+
+# Local dependencies - all our libraries
+moby-privacy = { path = "../libs/moby-privacy" }
+moby-governance = { path = "../libs/moby-governance" }
+moby-bridge = { path = "../libs/moby-bridge" }
+moby-oracle = { path = "../libs/moby-oracle" }
+moby-dex = { path = "../libs/moby-dex" }
+
+[dev-dependencies]
+tokio-test = "0.4"
+tempfile = "3.0"
+wiremock = "0.5"
+
+[features]
+default = ["full"]
+full = ["privacy", "governance", "bridge", "oracle", "dex"]
+privacy = []
+governance = []
+bridge = []
+oracle = []
+dex = []
+analytics = []
+monitoring = []
+
+[[example]]
+name = "whale_trading_platform"
+path = "examples/whale_trading_platform.rs"
+
+[[example]]
+name = "cross_chain_arbitrage"
+path = "examples/cross_chain_arbitrage.rs"
+
+[[example]]
+name = "private_whale_trading"
+path = "examples/private_whale_trading.rs"
+
+[[example]]
+name = "governance_managed_trading"
+path = "examples/governance_managed_trading.rs"
+
+[[example]]
+name = "multi_strategy_portfolio"
+path = "examples/multi_strategy_portfolio.rs"
+
+[[bin]]
+name = "moby-market-server"
+path = "src/bin/server.rs"
+
+[[bin]]
+name = "moby-market-cli"
+path = "src/bin/cli.rs"

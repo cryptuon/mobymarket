@@ -1,0 +1,26 @@
+[package]
+name = "moby-math"
+version = "0.1.0"
+edition = "2021"
+description = "High-precision mathematical utilities for whale-scale trading"
+authors = ["Moby Market Team"]
+license = "MIT"
+
+[dependencies]
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+num-bigint = "0.4"
+num-traits = "0.2"
+rust_decimal = { version = "1.32", features = ["serde-float"] }
+
+[dev-dependencies]
+proptest = "1.4"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "whale_calculations"
+harness = false
+
+[lib]
+name = "moby_math"
+path = "src/lib.rs"

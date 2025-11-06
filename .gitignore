@@ -1,0 +1,72 @@
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Test artifacts
+coverage.lcov
+coverage_html/
+*.profraw
+
+# Anchor
+.anchor
+target/
+dist/
+node_modules/
+
+# Solana
+test-ledger/
+.config/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Database files
+*.db
+*.sqlite
+
+# Documentation build
+docs/build/
+
+# Package manager
+package-lock.json
+yarn.lock
+
+# Coverage tools
+lcov.info
+coverage/
+
+# Benchmarks
+criterion/
+
+# Security
+.secrets.baseline
+
+# Build artifacts
+*.wasm
+*.so
+
+# Local development
+local.toml
+dev.env
