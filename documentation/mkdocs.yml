@@ -1,0 +1,82 @@
+site_name: MobyMarket
+site_url: https://mobymarket.docs.cryptuon.com/
+site_description: Institutional-grade DeFi trading platform for whales — OTC, TWAP/VWAP execution, and ZK privacy on Solana.
+
+docs_dir: docs
+site_dir: site
+
+repo_url: https://github.com/cryptuon/mobymarket
+repo_name: cryptuon/mobymarket
+edit_uri: edit/main/documentation/docs/
+
+theme:
+  name: material
+  palette:
+    # Dark mode default — warm/active palette congruent with a trading product.
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+
+plugins:
+  - search
+
+nav:
+  - Overview: index.md
+  - For Traders:
+      - Whale Trading Guide: whale-trading-guide.md
+      - OTC Trading Guide: otc-trading.md
+      - Privacy Trading Guide: privacy-trading.md
+  - For Institutions:
+      - Institutional Onboarding: institutional-setup.md
+      - API Reference: api-reference.md
+  - For Market Makers:
+      - Market Maker Guide: market-maker-guide.md
+  - Platform Features:
+      - Execution Algorithms: execution-algorithms.md
+      - Privacy Features: privacy-features.md
+      - Security: security.md
+  - Architecture:
+      - Technical Architecture: architecture.md
+      - Solana Programs: solana-programs.md
+  - Developers:
+      - Developer Guide: developer-guide.md
+      - Development Environment: dev-environment.md
+      - Testing Framework: core-libraries.md
+      - CI/CD Setup: ci-cd-setup.md
+      - Implementation Order: implementation-order.md
+      - Implementation Roadmap: implementation-roadmap.md
