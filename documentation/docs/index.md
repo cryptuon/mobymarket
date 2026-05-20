@@ -1,5 +1,11 @@
 # MobyMarket
 
+!!! warning "Under active development"
+
+    MobyMarket is under active development. APIs, schemas, and on-chain
+    layouts may change. Production use at your own risk.
+    Issues + PRs welcome — see the [GitHub repo](https://github.com/cryptuon/mobymarket).
+
 > **Finally, a trading platform built for whales.**
 
 MobyMarket is an institutional-grade DeFi trading platform designed for traders moving size that would otherwise move markets. It combines an OTC marketplace, sophisticated execution algorithms (TWAP / VWAP), and zero-knowledge privacy features on top of Solana, with a roadmap toward multi-chain support.

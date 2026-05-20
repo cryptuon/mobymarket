@@ -1,43 +1,51 @@
 # Moby Market
 
+> **Active development.** MobyMarket is under active development. APIs,
+> schemas, and on-chain layouts may change between releases.
+> Production use at your own risk. Issues and PRs welcome.
+
 > **Finally, a trading platform built for whales.**
+
+- Marketing site: <https://mobymarket.cryptuon.com/>
+- Documentation: <https://docs.cryptuon.com/mobymarket/>
+- Source: <https://github.com/cryptuon/mobymarket>
 
 ## The Problem
 
 If you're trading millions, DeFi is broken for you:
 
-- **🎯 You get front-run** - Every large order gets sandwiched by MEV bots
-- **📈 You move markets** - Your trades cause massive slippage, costing millions
-- **👀 Everyone watches** - Your positions are public, telegraphing your strategy
-- **🤝 No counterparties** - Can't find institutions to trade your size
-- **🏛️ Compliance nightmares** - Need regulatory compliance without sacrificing privacy
-- **⚡ Retail-grade tools** - Current DeFi UX feels like a toy compared to TradFi
+- **You get front-run** - Every large order risks being sandwiched by MEV bots
+- **You move markets** - Large trades cause severe slippage
+- **Everyone watches** - Public positions telegraph your strategy
+- **No counterparties** - Hard to find institutions to take the other side of size
+- **Compliance friction** - Institutional flow needs an audit trail without doxxing the trader
+- **Retail-grade tools** - Current DeFi UX feels like a toy compared to TradFi
 
 ## The Solution
 
-Moby Market is the first institutional-grade DeFi platform where you can:
+Moby Market is institutional-grade DeFi infrastructure where you can:
 
 **Trade your real size without moving markets or losing privacy.**
 
 ## How We Solve It
 
-### 🤝 **Find Real Counterparties**
+### Find Real Counterparties
 *"I need to sell $50M SOL but can't find buyers"*
 
 - **OTC Marketplace**: Connect directly with institutions and market makers
 - **Request-for-Quote**: Get competitive quotes from multiple counterparties
 - **Dark Pools**: Trade without revealing your size until matched
-- **One-Click**: Post your order, get quotes, execute - that simple
+- **One-Click**: Post your order, get quotes, execute — that simple
 
-### ⚡ **Trade Without Moving Markets**
+### Trade Without Moving Markets
 *"My $10M trade just moved SOL price 5%"*
 
 - **TWAP**: Spread your order over hours/days with smart timing
 - **VWAP**: Execute based on natural market volume patterns
 - **Smart Routing**: Split across multiple venues automatically
-- **Set & Forget**: "Sell $10M over 4 hours" - done
+- **Set & Forget**: "Sell $10M over 4 hours" — done
 
-### 🔒 **Keep Your Strategy Private**
+### Keep Your Strategy Private
 *"Everyone front-runs me because they see my trades coming"*
 
 - **Zero-Knowledge Proofs**: Trade without revealing amounts or timing
@@ -45,15 +53,18 @@ Moby Market is the first institutional-grade DeFi platform where you can:
 - **Privacy Pools**: Mix with other whales for maximum anonymity
 - **Professional Grade**: Privacy that actually works at institutional scale
 
-### 🏛️ **Stay Compliant**
+### Stay Compliant
 *"I need regulatory compliance but can't sacrifice privacy"*
 
 - **Selective Disclosure**: Prove compliance without revealing details
 - **Jurisdiction Proofs**: Show you're accredited without revealing location
 - **Audit Trail**: Full compliance reporting when needed
-- **Regulatory Ready**: Built for institutional compliance requirements
+- **Regulatory Ready**: Designed for institutional compliance requirements
 
-## Real Examples
+## Illustrative Examples
+
+These are scenarios the platform is designed to support; numbers are
+targets the architecture is built around, not measured production results.
 
 ### Example 1: Pension Fund Selling $100M SOL
 *"We need to liquidate without crashing the price"*
@@ -62,10 +73,10 @@ Moby Market is the first institutional-grade DeFi platform where you can:
 1. Click "TWAP Order"
 2. Enter: Sell $100M SOL over 48 hours
 3. System automatically:
-   - Splits into 288 randomized chunks
-   - Routes across 12 venues
+   - Splits into hundreds of randomised chunks
+   - Routes across multiple venues
    - Executes when liquidity is deep
-4. Result: 0.08% slippage vs 15%+ on Uniswap
+4. Goal: sub-1% realised slippage vs double-digit slippage on naive AMM swaps
 ```
 
 ### Example 2: Hedge Fund Private Position Building
@@ -77,8 +88,8 @@ Moby Market is the first institutional-grade DeFi platform where you can:
 3. Orders are:
    - Mixed with other traders
    - Split across multiple addresses
-   - Timing randomized to avoid detection
-4. Result: Position built with zero alpha leakage
+   - Timing randomised to avoid detection
+4. Goal: position built with minimal alpha leakage
 ```
 
 ### Example 3: Institution Cross-Chain Rebalancing
@@ -86,100 +97,147 @@ Moby Market is the first institutional-grade DeFi platform where you can:
 
 ```
 1. Post RFQ: ETH → SOL, $200M size
-2. Get quotes from 8 market makers
-3. Accept best quote (0.05% fee vs 2%+ on bridges)
-4. Settlement happens atomically
-5. Result: Professional execution with institutional pricing
+2. Get quotes from competing market makers
+3. Accept best quote
+4. Settlement happens atomically across chains
+5. Goal: professional execution with institutional pricing
 ```
 
-## Why Whales Choose Moby Market
+## Design Targets
 
-### 💰 **Save Millions on Slippage**
-- **Traditional DeFi**: 5-15% slippage on large orders
-- **Moby Market**: <0.1% slippage up to $100M orders
-- **Your Savings**: $50M trade saves $2.5M+ in slippage
+These are the design goals of the architecture, not measured production
+metrics. The system is pre-mainnet.
 
-### ⚡ **Professional Speed**
-- **Order Confirmation**: <400ms (faster than Bloomberg)
-- **Settlement**: 2-5 minutes vs hours on TradFi
-- **Always On**: 24/7/365 unlike traditional markets
+### Save on Slippage
+- **Typical retail DeFi**: 5–15% slippage on large orders
+- **Moby Market target**: <0.1% slippage on whale-sized orders
+- **Mechanism**: TWAP/VWAP shredding, smart routing, OTC clearing
 
-### 🔒 **Institutional Security**
-- **$2B+ Protected**: Multi-signature controls
-- **Zero Hacks**: Formal verification of all critical code
-- **Regulatory Ready**: Full compliance modules
-- **Emergency Controls**: Instant pause mechanisms
+### Professional Speed
+- **Order Confirmation target**: <400ms
+- **Settlement**: minutes vs hours on TradFi
+- **Always On**: 24/7/365
 
-### 🌊 **Deep Liquidity**
-- **$500M+ Daily Volume**: Real institutional size
-- **50+ Market Makers**: Competitive pricing always
-- **Cross-Chain**: Access liquidity across all major chains
-- **OTC Network**: Direct access to whale counterparties
+### Institutional Security
+- **Multi-signature controls** on privileged actions
+- **Formal verification** targeted for critical paths
+- **Regulatory-ready** compliance modules
+- **Emergency Controls**: pause mechanisms for incident response
 
-## Ready to Trade Like a Whale?
+### Deep Liquidity (design target)
+- **Cross-Chain**: access liquidity across major chains
+- **OTC Network**: direct access to whale counterparties
+- **Aggregated** across Serum, Raydium, Orca, Phoenix, Lifinity, and custom AMMs
 
-### Launch Timeline
+## Repository Layout
 
-**🚀 Q1 2025: Go Live**
-- OTC marketplace launches on Solana
-- TWAP/VWAP execution live
-- $100M+ liquidity day one
+```
+.
+├── Cargo.toml          # Rust workspace root
+├── libs/               # Rust crates
+│   ├── moby-math       # Fixed-point math, Pedersen commitments
+│   ├── moby-types      # Shared types (TradingIntent, OTCEscrow, ...)
+│   ├── moby-oracle     # Pyth / Switchboard / Chainlink aggregation
+│   ├── moby-trading    # TWAP, VWAP, smart routing, cross-chain primitives
+│   └── moby-privacy    # Groth16/PLONK/STARK/Bulletproofs, stealth addresses
+├── platform/           # Higher-level platform crate + examples
+├── frontend/           # Web frontend (separate package)
+├── documentation/      # MkDocs Material site (docs.cryptuon.com/mobymarket)
+├── docs/               # Long-form design docs (Markdown)
+└── scripts/            # build.sh, test.sh
+```
 
-**🔒 Q2 2025: Privacy Launch**
-- Zero-knowledge privacy pools
-- Stealth trading modes
-- Complete transaction privacy
+## Quickstart
 
-**🌐 Q3 2025: Multi-Chain**
-- Ethereum, Arbitrum, Base support
-- Cross-chain atomic swaps
-- Unified liquidity across chains
+Prerequisites:
 
-**🤖 Q4 2025: AI-Powered**
-- Intent-based trading
-- AI execution optimization
-- Predictive market analysis
+- Rust (toolchain pinned via `rust-toolchain.toml`)
+- Solana CLI (optional, required for on-chain deploys)
+- Anchor CLI 0.29 (optional, required for `anchor build`/`anchor test`)
 
-## Get Started
+Clone and build the Rust workspace:
+
+```bash
+git clone https://github.com/cryptuon/mobymarket.git
+cd mobymarket
+
+# Full build + lint + test
+./scripts/build.sh
+
+# Or just the workspace
+cargo build --workspace --release
+
+# Run the test suite
+./scripts/test.sh
+```
+
+Frontend (separate Node package):
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## Documentation
+
+Full documentation lives at <https://docs.cryptuon.com/mobymarket/>.
 
 ### For Traders
-📖 **[Whale Trading Guide](./docs/whale-trading-guide.md)** - How to trade your size without moving markets
-🤝 **[Finding Counterparties](./docs/otc-trading.md)** - Access the institutional OTC network
-🔒 **[Privacy Trading](./docs/privacy-trading.md)** - Keep your strategy confidential
-🏛️ **[Compliance Guide](./docs/compliance-guide.md)** - Stay regulatory compliant
+- **[Whale Trading Guide](./docs/whale-trading-guide.md)** — How to trade your size without moving markets
+- **[Finding Counterparties](./docs/otc-trading.md)** — Access the institutional OTC network
+- **[Privacy Trading](./docs/privacy-trading.md)** — Keep your strategy confidential
 
 ### For Institutions
-💼 **[Institutional Onboarding](./docs/institutional-setup.md)** - White-glove setup process
-📊 **[Risk Management](./docs/risk-management.md)** - Professional risk controls
-🔌 **[API Integration](./docs/api-reference.md)** - Connect your existing systems
-📞 **[Support](mailto:institutions@moby-market.com)** - Dedicated institutional support
+- **[Institutional Onboarding](./docs/institutional-setup.md)** — White-glove setup process
+- **[API Reference](./docs/api-reference.md)** — Connect your existing systems
+- **Support**: institutions@moby-market.com
 
 ### For Market Makers
-💧 **[Liquidity Provider Guide](./docs/market-maker-guide.md)** - Earn fees providing liquidity
-⚡ **[RFQ System](./docs/rfq-system.md)** - Respond to institutional requests
-🔧 **[Technical Integration](./docs/developer-guide.md)** - Build your own tools
+- **[Market Maker Guide](./docs/market-maker-guide.md)** — Earn fees providing liquidity
+- **[Technical Integration](./docs/developer-guide.md)** — Build your own tools
+
+### Upcoming Docs
+The following guides are planned and will land as the corresponding subsystems
+mature:
+
+- Compliance Guide (selective disclosure, jurisdiction proofs)
+- Risk Management (institutional risk controls)
+- RFQ System (deep dive on the request-for-quote flow)
+
+## Roadmap
+
+The phased rollout is described in detail in
+[`documentation/docs/implementation-roadmap.md`](./documentation/docs/implementation-roadmap.md)
+and [`documentation/docs/implementation-order.md`](./documentation/docs/implementation-order.md).
+Early roadmap, in order:
+
+- **OTC + execution**: OTC marketplace on Solana, TWAP/VWAP execution
+- **Privacy**: zero-knowledge privacy pools, stealth trading modes
+- **Multi-chain**: Ethereum, Arbitrum, Base support via cross-chain atomic swaps
+- **AI-assisted execution**: intent-based trading and execution optimization
+
+Dates are intentionally not pinned in the README; the roadmap docs above
+track current sequencing.
+
+## Status
+
+MobyMarket is **pre-mainnet** and under active development. The Rust
+workspace is buildable, the on-chain programs and supporting crates are
+evolving, and APIs may change. See the active-development notice at the
+top of this README.
+
+## Contact
+
+- **Institutions**: institutions@moby-market.com
+- **Security**: security@moby-market.com
+- **Support**: support@moby-market.com
+
+## License
+
+MIT — see [LICENSE_HEADER.txt](./LICENSE_HEADER.txt) and per-crate
+metadata.
 
 ---
 
-## Early Access
-
-**Limited Beta - Q4 2024**
-Get early access to test with paper trading and limited real funds.
-
-**[Request Beta Access →](https://forms.moby-market.com/beta)**
-
-*Requirements: $10M+ AUM or institutional credentials*
-
----
-
-## Built for Whales
-
-*"Finally, a platform that understands institutional trading needs."*
-
-**Contact**: institutions@moby-market.com
-**Security**: security@moby-market.com
-**Support**: support@moby-market.com
-
----
-
-*🐋 Making DeFi safe for whales*
+*Making DeFi safe for whales.*
