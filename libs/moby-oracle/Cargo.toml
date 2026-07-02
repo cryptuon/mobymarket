@@ -2,11 +2,11 @@
 name = "moby-oracle"
 version = "0.1.0"
 edition = "2021"
-authors = ["Moby Market Team <oracle@moby-market.com>"]
+authors = ["Cryptuon Research <contact@cryptuon.com>"]
 description = "Decentralized oracle infrastructure for whale trading price feeds and data aggregation"
 license = "MIT"
-homepage = "https://moby-market.com"
-repository = "https://github.com/moby-market/moby-oracle"
+homepage = "https://mobymarket.cryptuon.com/"
+repository = "https://github.com/cryptuon/mobymarket"
 keywords = ["oracle", "price-feeds", "whale-trading", "defi", "data-aggregation"]
 categories = ["cryptography", "finance", "network-programming"]
 

@@ -2,11 +2,12 @@
 name = "moby-market-platform"
 version = "0.1.0"
 edition = "2021"
-authors = ["Moby Market Team <platform@moby-market.com>"]
+authors = ["Cryptuon Research <contact@cryptuon.com>"]
 description = "Complete whale trading platform integrating privacy, governance, bridge, oracle, and DEX components"
 license = "MIT"
-homepage = "https://moby-market.com"
-repository = "https://github.com/moby-market/moby-market-platform"
+homepage = "https://mobymarket.cryptuon.com/"
+documentation = "https://docs.cryptuon.com/mobymarket/"
+repository = "https://github.com/cryptuon/mobymarket"
 keywords = ["whale-trading", "defi", "privacy", "cross-chain", "dex"]
 categories = ["cryptography", "finance", "network-programming"]
 

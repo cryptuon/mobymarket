@@ -3,8 +3,12 @@ name = "moby-math"
 version = "0.1.0"
 edition = "2021"
 description = "High-precision mathematical utilities for whale-scale trading"
-authors = ["Moby Market Team"]
+authors = ["Cryptuon Research <contact@cryptuon.com>"]
 license = "MIT"
+homepage = "https://mobymarket.cryptuon.com/"
+documentation = "https://docs.cryptuon.com/mobymarket/"
+repository = "https://github.com/cryptuon/mobymarket"
+keywords = ["defi", "trading", "solana", "fixed-point", "math"]
 
 [dependencies]
 thiserror = "1.0"

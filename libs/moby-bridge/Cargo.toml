@@ -2,11 +2,11 @@
 name = "moby-bridge"
 version = "0.1.0"
 edition = "2021"
-authors = ["Moby Market Team <bridge@moby-market.com>"]
+authors = ["Cryptuon Research <contact@cryptuon.com>"]
 description = "Cross-chain bridge infrastructure for whale trading protocols"
 license = "MIT"
-homepage = "https://moby-market.com"
-repository = "https://github.com/moby-market/moby-bridge"
+homepage = "https://mobymarket.cryptuon.com/"
+repository = "https://github.com/cryptuon/mobymarket"
 keywords = ["bridge", "cross-chain", "whale-trading", "defi", "interoperability"]
 categories = ["cryptography", "finance", "network-programming"]
 

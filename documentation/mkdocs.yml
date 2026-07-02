@@ -1,6 +1,8 @@
 site_name: MobyMarket
 site_url: https://docs.cryptuon.com/mobymarket/
+site_author: Cryptuon Research
 site_description: Institutional-grade DeFi trading platform for whales — OTC, TWAP/VWAP execution, and ZK privacy on Solana.
+copyright: © 2026 Cryptuon Research
 
 docs_dir: docs
 site_dir: site
@@ -54,6 +56,19 @@ markdown_extensions:
 
 plugins:
   - search
+
+extra:
+  homepage: https://mobymarket.cryptuon.com/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cryptuon/mobymarket
+      name: Moby Market on GitHub
+    - icon: fontawesome/solid/globe
+      link: https://mobymarket.cryptuon.com/
+      name: Moby Market site
+    - icon: fontawesome/solid/flask
+      link: https://www.cryptuon.com
+      name: Cryptuon Research
 
 nav:
   - Overview: index.md

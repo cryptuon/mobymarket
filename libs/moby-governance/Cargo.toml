@@ -2,11 +2,11 @@
 name = "moby-governance"
 version = "0.1.0"
 edition = "2021"
-authors = ["Moby Market Team <governance@moby-market.com>"]
+authors = ["Cryptuon Research <contact@cryptuon.com>"]
 description = "Decentralized governance system for whale trading protocols"
 license = "MIT"
-homepage = "https://moby-market.com"
-repository = "https://github.com/moby-market/moby-governance"
+homepage = "https://mobymarket.cryptuon.com/"
+repository = "https://github.com/cryptuon/mobymarket"
 keywords = ["governance", "dao", "voting", "whale-trading", "defi"]
 categories = ["cryptography", "finance", "governance"]
 

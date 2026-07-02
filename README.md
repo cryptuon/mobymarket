@@ -1,5 +1,7 @@
 # Moby Market
 
+**[🌐 Site](https://mobymarket.cryptuon.com/) · [📚 Docs](https://docs.cryptuon.com/mobymarket/) · [🔬 Cryptuon Research](https://github.com/cryptuon)**
+
 > **Active development.** MobyMarket is under active development. APIs,
 > schemas, and on-chain layouts may change between releases.
 > Production use at your own risk. Issues and PRs welcome.
@@ -191,7 +193,7 @@ Full documentation lives at <https://docs.cryptuon.com/mobymarket/>.
 ### For Institutions
 - **[Institutional Onboarding](./docs/institutional-setup.md)** — White-glove setup process
 - **[API Reference](./docs/api-reference.md)** — Connect your existing systems
-- **Support**: institutions@moby-market.com
+- **Support**: contact@cryptuon.com
 
 ### For Market Makers
 - **[Market Maker Guide](./docs/market-maker-guide.md)** — Earn fees providing liquidity
@@ -229,14 +231,24 @@ top of this README.
 
 ## Contact
 
-- **Institutions**: institutions@moby-market.com
-- **Security**: security@moby-market.com
-- **Support**: support@moby-market.com
+- **Institutions**: contact@cryptuon.com
+- **Security**: contact@cryptuon.com
+- **Support**: contact@cryptuon.com
 
 ## License
 
 MIT — see [LICENSE_HEADER.txt](./LICENSE_HEADER.txt) and per-crate
 metadata.
+
+---
+
+## Part of Cryptuon Research
+
+`mobymarket` is one of [20 open-source blockchain-infrastructure projects](https://www.cryptuon.com/projects) from **[Cryptuon Research](https://www.cryptuon.com)** — blockchain theory, shipped as protocols.
+
+**Related projects:** [Mentat](https://mentat.cryptuon.com/) · [PolyBot](https://polybot.cryptuon.com/) · [dgbit](https://dgbit.cryptuon.com/)
+
+Docs: [docs.cryptuon.com/mobymarket](https://docs.cryptuon.com/mobymarket/) · Contact: [contact@cryptuon.com](mailto:contact@cryptuon.com)
 
 ---
 

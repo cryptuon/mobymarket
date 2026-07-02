@@ -2,11 +2,11 @@
 name = "moby-dex"
 version = "0.1.0"
 edition = "2021"
-authors = ["Moby Market Team <dex@moby-market.com>"]
+authors = ["Cryptuon Research <contact@cryptuon.com>"]
 description = "Advanced decentralized exchange optimized for whale trading with MEV protection and sophisticated AMM algorithms"
 license = "MIT"
-homepage = "https://moby-market.com"
-repository = "https://github.com/moby-market/moby-dex"
+homepage = "https://mobymarket.cryptuon.com/"
+repository = "https://github.com/cryptuon/mobymarket"
 keywords = ["dex", "amm", "whale-trading", "defi", "mev-protection"]
 categories = ["cryptography", "finance", "algorithms"]
 
