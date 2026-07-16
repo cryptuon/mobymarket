@@ -6,28 +6,59 @@
 > schemas, and on-chain layouts may change between releases.
 > Production use at your own risk. Issues and PRs welcome.
 
-> **Finally, a trading platform built for whales.**
+> **The execution leg for institutional DeFi and tokenized RWAs on Solana.**
 
 - Marketing site: <https://mobymarket.cryptuon.com/>
 - Documentation: <https://docs.cryptuon.com/mobymarket/>
 - Source: <https://github.com/cryptuon/mobymarket>
+- Roadmap & production path: [`ROADMAP.md`](./ROADMAP.md)
+
+## Why this matters in 2026
+
+The two biggest structural shifts in on-chain finance — **real-world-asset (RWA)
+tokenization** and **institutional DeFi adoption** — both hit the same wall: the
+*execution* wall. Tokenizing a treasury, a credit fund, or a corporate balance
+sheet is now well-understood. Moving size in and out of those positions without
+front-running, market impact, or information leakage is not. Public AMMs
+broadcast every order. CEX OTC desks reintroduce counterparty risk and custody
+trust. Intent frameworks solve routing but rarely solve privacy or block-sized
+OTC clearing.
+
+Moby Market is the missing execution leg. It is open-source Rust infrastructure
+that lets institutions and tokenized-RWA issuers trade whale-sized size on
+Solana with the three properties that matter to a treasurer, a fund desk, or a
+compliance officer:
+
+- **No market impact** — TWAP/VWAP shredding and OTC block clearing keep large
+  orders off the public price.
+- **No information leakage** — zero-knowledge privacy pools and stealth addresses
+  keep strategy confidential while selective disclosure keeps compliance provable.
+- **Intent-native** — a trader posts *what* they want; a solver network competes
+  on *how* to fill it, aligned with the 2026 move toward intent-based,
+  atomically-composable execution.
+
+If tokenized RWAs and institutional capital are the flow, Moby Market is the
+plumbing that moves that flow without leaving a wake.
 
 ## The Problem
 
-If you're trading millions, DeFi is broken for you:
+Institutional and RWA-sized trades break every assumption retail DeFi is built on:
 
 - **You get front-run** - Every large order risks being sandwiched by MEV bots
-- **You move markets** - Large trades cause severe slippage
-- **Everyone watches** - Public positions telegraph your strategy
+- **You move markets** - Large trades cause severe slippage on public pools
+- **Everyone watches** - Public positions telegraph strategy to competitors
 - **No counterparties** - Hard to find institutions to take the other side of size
-- **Compliance friction** - Institutional flow needs an audit trail without doxxing the trader
+- **Compliance friction** - Institutional and RWA flow needs an audit trail without doxxing the trader
+- **Custodial OTC** - CEX OTC desks solve impact but reintroduce counterparty and custody trust
 - **Retail-grade tools** - Current DeFi UX feels like a toy compared to TradFi
 
 ## The Solution
 
-Moby Market is institutional-grade DeFi infrastructure where you can:
+Moby Market is open-source, institutional-grade execution infrastructure where
+institutions and tokenized-RWA issuers can:
 
-**Trade your real size without moving markets or losing privacy.**
+**Trade real size without moving markets, without leaking strategy, and without
+giving up custody.**
 
 ## How We Solve It
 
@@ -103,6 +134,20 @@ targets the architecture is built around, not measured production results.
 3. Accept best quote
 4. Settlement happens atomically across chains
 5. Goal: professional execution with institutional pricing
+```
+
+### Example 4: Tokenized-RWA Issuer Rebalancing a Portfolio
+*"We hold tokenized T-bills and private credit and need to rotate size on-chain"*
+
+```
+1. Post a TradingIntent: rotate $75M from token A into token B
+2. System chooses the cheapest path per leg:
+   - OTC block clearing where a counterparty exists
+   - TWAP/VWAP shredding where it must touch venues
+3. Amounts stay Pedersen-committed; a selective-disclosure proof
+   satisfies the fund's own compliance and audit obligations
+4. Goal: rebalance a tokenized book without printing the trade
+   to the rest of the market
 ```
 
 ## Design Targets
@@ -209,15 +254,21 @@ mature:
 
 ## Roadmap
 
-The phased rollout is described in detail in
+The vision, milestones, and — importantly — the **cheapest path to production**
+live in [`ROADMAP.md`](./ROADMAP.md). Read that first if you want to understand
+where this is going and what has to be true before real institutional or RWA
+flow can settle on it.
+
+The lower-level phasing is described in detail in
 [`documentation/docs/implementation-roadmap.md`](./documentation/docs/implementation-roadmap.md)
 and [`documentation/docs/implementation-order.md`](./documentation/docs/implementation-order.md).
 Early roadmap, in order:
 
 - **OTC + execution**: OTC marketplace on Solana, TWAP/VWAP execution
 - **Privacy**: zero-knowledge privacy pools, stealth trading modes
+- **Intent-native execution**: intent-based trading and a competitive solver network
+- **RWA & institutional rails**: selective-disclosure compliance controls for tokenized-RWA and institutional flow
 - **Multi-chain**: Ethereum, Arbitrum, Base support via cross-chain atomic swaps
-- **AI-assisted execution**: intent-based trading and execution optimization
 
 Dates are intentionally not pinned in the README; the roadmap docs above
 track current sequencing.
@@ -252,4 +303,4 @@ Docs: [docs.cryptuon.com/mobymarket](https://docs.cryptuon.com/mobymarket/) · C
 
 ---
 
-*Making DeFi safe for whales.*
+*The execution leg for institutional DeFi and tokenized RWAs.*
